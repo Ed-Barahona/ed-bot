@@ -1,6 +1,6 @@
 {
     "appSecret": "6f20a3bc473d68c888d6320a7425137f",
-    "pageAccessToken": "EAAHP5EK8jPwBAB9ehprFE6QMn6XyiSPZAAw6ouSMglZB3IPVlmMX5e5BBLldjWNIPz4qw2bMpG80PhQR5xuJWFrGcqH8sGQj5HkZBAGyBZCcyBZCZA7cJIBG1vlZAS5ljVGcXYZCwJmKBOqYDngZBZC0pYUFYrjoFlG144zuuxDvoblA5TCbZALLOeq",
+    "pageAccessToken": "",
     "validationToken": "ed-barahona-validation",
     "serverURL": "https://fierce-citadel-58818.herokuapp.com/"
 }
