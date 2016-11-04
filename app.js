@@ -250,66 +250,21 @@ function receivedMessage(event) {
   }
 
   if (messageText) {
+      
+    var ai_request = ai_app.textRequest(messageText);
+    
+    ai_request.on('response', function(response) {
+        console.log(response);
+        sendTextMessage(senderID, response);
+    });
 
-    // If we receive a text message, check to see if it matches any special
-    // keywords and send back the corresponding example. Otherwise, just echo
-    // the text we received.
-    switch (messageText) {
-      case 'image':
-        sendImageMessage(senderID);
-        break;
+    ai_request.on('error', function(error) {
+        console.log(error);
+    });
 
-      case 'gif':
-        sendGifMessage(senderID);
-        break;
+    ai_request.end();
+        
 
-      case 'audio':
-        sendAudioMessage(senderID);
-        break;
-
-      case 'video':
-        sendVideoMessage(senderID);
-        break;
-
-      case 'file':
-        sendFileMessage(senderID);
-        break;
-
-      case 'button':
-        sendButtonMessage(senderID);
-        break;
-
-      case 'generic':
-        sendGenericMessage(senderID);
-        break;
-
-      case 'receipt':
-        sendReceiptMessage(senderID);
-        break;
-
-      case 'quick reply':
-        sendQuickReply(senderID);
-        break;        
-
-      case 'read receipt':
-        sendReadReceipt(senderID);
-        break;        
-
-      case 'typing on':
-        sendTypingOn(senderID);
-        break;        
-
-      case 'typing off':
-        sendTypingOff(senderID);
-        break;        
-
-      case 'account linking':
-        sendAccountLinking(senderID);
-        break;
-
-      default:
-        sendTextMessage(senderID, messageText);
-    }
   } else if (messageAttachments) {
     sendTextMessage(senderID, "Message with attachment received");
   }
@@ -796,6 +751,14 @@ function sendAccountLinking(recipientId) {
 
   callSendAPI(messageData);
 }
+
+
+var apiai = require('apiai');
+ 
+var ai_app = apiai("11bee8e18413480ab769831c47910279");
+ 
+//var ai_request = ai_app.textRequest('<Your text query>');
+ 
 
 /*
  * Call the Send API. The message data goes in the body. If successful, we'll 
