@@ -615,53 +615,58 @@ function sendGenericMessage(recipientId) {
 
 
 
-function putDownYourWeapon(){
+function putDownYourWeapon(recipientId){
     
                 setTimeout(function() {
                     // Message one
                     sendTextMessage(recipientId, "Please put down your weapon. You have 20 seconds to comply.");
-                    sendTypingOn(senderID);
+                    sendTypingOn(recipientId);
                 }, 500);
                 setTimeout(function() {
                    // Message Two
-                    sendTypingOff(senderID);
+                    sendTypingOff(recipientId);
                     sendTextMessage(recipientId, "20");
-                    sendTypingOn(senderID);
+                    sendTypingOn(recipientId);
                 }, 1000);
                 setTimeout(function() {
                     //Message Three
-                    sendTypingOff(senderID);
+                    sendTypingOff(recipientId);
                     sendTextMessage(recipientId, "10");
-                    sendTypingOn(senderID);
+                    sendTypingOn(recipientId);
                 }, 1500);
                 setTimeout(function() {
                     // Message four
-                    sendTypingOff(senderID);
+                    sendTypingOff(recipientId);
                     sendTextMessage(recipientId, "5");
+                    sendTypingOn(recipientId);
                 }, 2500);
     
                 setTimeout(function() {
                     // Message four
-                    sendTypingOff(senderID);
+                    sendTypingOff(recipientId);
                     sendTextMessage(recipientId, "4");
+                    sendTypingOn(recipientId);
                 }, 3000);
     
                 setTimeout(function() {
                     // Message four
-                    sendTypingOff(senderID);
+                    sendTypingOff(recipientId);
                     sendTextMessage(recipientId, "3");
+                    sendTypingOn(recipientId);
                 }, 4000);
     
                 setTimeout(function() {
                     // Message four
-                    sendTypingOff(senderID);
+                    sendTypingOff(recipientId);
                     sendTextMessage(recipientId, "2");
+                    sendTypingOn(recipientId);
                 }, 5000);
     
                 setTimeout(function() {
                     // Message four
-                    sendTypingOff(senderID);
+                    sendTypingOff(recipientId);
                     sendTextMessage(recipientId, "1");
+                    
                 }, 6000);
     
                 setTimeout(function() {
