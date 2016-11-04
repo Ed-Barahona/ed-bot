@@ -257,7 +257,8 @@ function receivedMessage(event) {
         
         console.log(response);
         
-        var text = JSON.stringify(response.speech);
+        var text = response.result.fulfillment.speech;
+            //JSON.stringify(response.speech);
         sendTextMessage(senderID, text);
     });
 
