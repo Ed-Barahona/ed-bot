@@ -256,31 +256,31 @@ function receivedMessage(event) {
     // the text we received.
     switch (messageText) {
       case 'hello creep':
-        sendImageMessage(senderID);
+        putDownYourWeapon(senderID);
         break;
 
       case 'dead or alive you are coming with me':
-        sendGifMessage(senderID);
+        putDownYourWeapon(senderID);
         break;
     
       case 'robocop':
-        sendGifMessage(senderID);
+        putDownYourWeapon(senderID);
         break;
 
       case 'stop you are under arrest':
-        sendAudioMessage(senderID);
+        putDownYourWeapon(senderID);
         break;
 
       case 'are you ocp?':
-        sendVideoMessage(senderID);
+        putDownYourWeapon(senderID);
         break;
 
       case 'murphy':
-        sendFileMessage(senderID);
+        putDownYourWeapon(senderID);
         break;
 
       case 'my name is murphy':
-        sendButtonMessage(senderID);
+        putDownYourWeapon(senderID);
         break;
 
       default:
