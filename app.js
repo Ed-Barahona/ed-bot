@@ -248,26 +248,61 @@ function receivedMessage(event) {
     sendTextMessage(senderID, "Quick reply tapped");
     return;
   }
-
-  if (messageText) {
-      
-    var ai_request = ai_app.textRequest(messageText);
     
-    ai_request.on('response', function(response) {
-        
-        console.log(response);
-        
-        var text = response.result.fulfillment.speech;
-            //JSON.stringify(response.speech);
-        sendTextMessage(senderID, text);
-    });
+  if (messageText) {
+     messageText = messageText.toLowerCase();
+    // If we receive a text message, check to see if it matches any special
+    // keywords and send back the corresponding example. Otherwise, just echo
+    // the text we received.
+    switch (messageText) {
+      case 'hello creep':
+        sendImageMessage(senderID);
+        break;
 
-    ai_request.on('error', function(error) {
-        console.log(error);
-    });
+      case 'dead or alive you are coming with me':
+        sendGifMessage(senderID);
+        break;
+    
+      case 'robocop':
+        sendGifMessage(senderID);
+        break;
 
-    ai_request.end();
-        
+      case 'stop you are under arrest':
+        sendAudioMessage(senderID);
+        break;
+
+      case 'are you ocp?':
+        sendVideoMessage(senderID);
+        break;
+
+      case 'murphy':
+        sendFileMessage(senderID);
+        break;
+
+      case 'my name is murphy':
+        sendButtonMessage(senderID);
+        break;
+
+      default:
+            
+            
+            var ai_request = ai_app.textRequest(messageText);
+
+            ai_request.on('response', function(response) {
+
+                console.log(response);
+
+                var text = response.result.fulfillment.speech;
+                    //JSON.stringify(response.speech);
+                sendTextMessage(senderID, text);
+            });
+
+            ai_request.on('error', function(error) {
+                console.log(error);
+            });
+
+            ai_request.end();
+    }            
 
   } else if (messageAttachments) {
     sendTextMessage(senderID, "Message with attachment received");
@@ -577,6 +612,85 @@ function sendGenericMessage(recipientId) {
 
   callSendAPI(messageData);
 }
+
+
+
+function putDownYourWeapon(){
+    
+                setTimeout(function() {
+                    // Message one
+                    sendTextMessage(recipientId, "Please put down your weapon. You have 20 seconds to comply.");
+                    sendTypingOn(senderID);
+                }, 500);
+                setTimeout(function() {
+                   // Message Two
+                    sendTypingOff(senderID);
+                    sendTextMessage(recipientId, "20");
+                    sendTypingOn(senderID);
+                }, 1000);
+                setTimeout(function() {
+                    //Message Three
+                    sendTypingOff(senderID);
+                    sendTextMessage(recipientId, "10");
+                    sendTypingOn(senderID);
+                }, 1500);
+                setTimeout(function() {
+                    // Message four
+                    sendTypingOff(senderID);
+                    sendTextMessage(recipientId, "5");
+                }, 2500);
+    
+                setTimeout(function() {
+                    // Message four
+                    sendTypingOff(senderID);
+                    sendTextMessage(recipientId, "4");
+                }, 3000);
+    
+                setTimeout(function() {
+                    // Message four
+                    sendTypingOff(senderID);
+                    sendTextMessage(recipientId, "3");
+                }, 4000);
+    
+                setTimeout(function() {
+                    // Message four
+                    sendTypingOff(senderID);
+                    sendTextMessage(recipientId, "2");
+                }, 5000);
+    
+                setTimeout(function() {
+                    // Message four
+                    sendTypingOff(senderID);
+                    sendTextMessage(recipientId, "1");
+                }, 6000);
+    
+                setTimeout(function() {
+                    // Message four
+                    sendEdMessage(recipientId);
+                }, 6500);
+    
+    
+}
+
+
+function sendEdMessage(recipientId) {
+  var messageData = {
+    recipient: {
+      id: recipientId
+    },
+    message: {
+      attachment: {
+        type: "image",
+        payload: {
+          url: SERVER_URL + "/assets/ed209shoot.gif"
+        }
+      }
+    }
+  };
+
+  callSendAPI(messageData);
+}
+
 
 /*
  * Send a receipt message using the Send API.
