@@ -255,7 +255,8 @@ function receivedMessage(event) {
     
     ai_request.on('response', function(response) {
         console.log(response);
-        sendTextMessage(senderID, response);
+        var text = JSON.stringify(response.speech));
+        sendTextMessage(senderID, text);
     });
 
     ai_request.on('error', function(error) {
