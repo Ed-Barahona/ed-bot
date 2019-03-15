@@ -1,5 +1,5 @@
 {
-    "appSecret": "6f20a3bc473d68c888d6320a7425137f",
+    "appSecret": "APP_ID",
     "pageAccessToken": "",
     "validationToken": "ed-barahona-validation",
     "serverURL": "https://fierce-citadel-58818.herokuapp.com/"
